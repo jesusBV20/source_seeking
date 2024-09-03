@@ -1,0 +1,9 @@
+[submodule "source_seeking_2D"]
+	path = source_seeking_2D
+	url = https://github.com/jesusBV20/source_seeking_2D.git
+[submodule "source_seeking_3D"]
+	path = source_seeking_3D
+	url = https://github.com/jesusBV20/source_seeking_3D.git
+[submodule "source_seeking_distr"]
+	path = source_seeking_distr
+	url = https://github.com/jesusBV20/source_seeking_distr.git
