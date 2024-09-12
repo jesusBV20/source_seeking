@@ -1,4 +1,4 @@
-# Source-seeking simulations for robot swarm
+# Source-seeking simulations for robot swarms
 
 This repository contains a collection of Python simulations we use to numerically validate and test our source-seeking algorithms for swarms before moving to our robotic platforms.
 
