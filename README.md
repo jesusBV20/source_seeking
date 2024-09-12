@@ -2,7 +2,7 @@
 
 This repository contains a collection of Python simulations we use to numerically validate and test our source-seeking algorithms for swarms before moving to our robotic platforms.
 
-## Content:
+## Content
 
 * `source_seeking_2D`: Implements our resilient source-seeking algorithm for robot swarms in 2D.
 * `source_seeking_3D`: Implements a PD control in SO(3) to align robot swarms with the ascending direction given by our resilient source-seeking algorithm.
