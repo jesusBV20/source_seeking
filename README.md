@@ -67,6 +67,3 @@ needed for the analysis and implementation of the controllers.
 ```
 
 We strongly recommend referring to this technical note for a comprehensive understanding of the mathematical theory underlying the code in `source_seeking_3D`.
-
-## Credits
-This repository is maintained by [Jesús Bautista Villar](https://sites.google.com/view/jbautista-research). For inquiries, suggestions, or further information, feel free to contact him at <jesbauti20@gmail.com>.
