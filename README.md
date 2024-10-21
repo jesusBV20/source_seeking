@@ -2,10 +2,9 @@
 
 This repository contains a collection of Python simulations we use to numerically validate and test our source-seeking algorithms for swarms before moving to our robotic platforms.
 
-## Content
-* `source_seeking_2D`: Resilient source-seeking algorithm for robot swarms in 2D.
-* `source_seeking_3D`: PD controller in SO(3) to align robot swarms with the ascending direction given by our resilient source-seeking algorithm.
-* `source_seeking_distr`: A distributed consensus algorithm for robot swarms to estimate the ascending direction given by our source-seeking algorithm.
+* [source_seeking_2D](https://github.com/jesusBV20/source_seeking_2D): Resilient source-seeking algorithm for robot swarms in 2D.
+* [source_seeking_3D](https://github.com/jesusBV20/source_seeking_3D): PD controller in SO(3) to align robot swarms with the ascending direction given by our resilient source-seeking algorithm.
+* [source_seeking_distr](https://github.com/jesusBV20/source_seeking_distr): A distributed consensus algorithm for robot swarms to estimate the ascending direction given by our source-seeking algorithm.
 
 ## Research Journal Paper
 
