@@ -39,5 +39,7 @@ jobs:
 
       - name: Authenticate and push
         run: |
-          git remote set-url origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}
+          git remote set-url origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ env.THIS_REPO }}
           git push
+        env:
+          THIS_REPO: "jesusBV20/source_seeking@master"
