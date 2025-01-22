@@ -1,12 +1,10 @@
 name: Update Submodules
 
 on:
-  # This action can be triggered by a workflow in an external repository
-  workflow_call:
-    secrets:
-      PUSH_TOKEN:
-        required: true
-        
+  # Listen to a repository dispatch event by the name of "dispatch-event"
+  repository_dispatch:
+    types: [dispatch-event]
+    
   workflow_dispatch:
 
 jobs:
@@ -39,7 +37,5 @@ jobs:
 
       - name: Authenticate and push
         run: |
-          git remote set-url origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ env.THIS_REPO }}
+          git remote set-url origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}
           git push
-        env:
-          THIS_REPO: "jesusBV20/source_seeking"
