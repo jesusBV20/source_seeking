@@ -42,4 +42,4 @@ jobs:
           git remote set-url origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ env.THIS_REPO }}
           git push
         env:
-          THIS_REPO: "jesusBV20/source_seeking@master"
+          THIS_REPO: "jesusBV20/source_seeking"
