@@ -35,6 +35,8 @@ jobs:
         run: |
           # If changes were detected, commit the updated submodules
           if [[ $(git diff --exit-code) ]]; then
+            git config --local user.email "github-actions[bot]@users.noreply.github.com"
+            git config --local user.name "GitHub Actions Bot"
             git add .
             git commit -m "Update submodules"
             git push
