@@ -4,9 +4,9 @@ on:
   # This action can be triggered by a workflow in an external repository
   workflow_call:
     secrets:
-      PUSH_TOKEN:
+      GITHUB_TOKEN:
         required: true
-
+        
   workflow_dispatch:
 
 jobs:
@@ -39,5 +39,5 @@ jobs:
 
       - name: Authenticate and push
         run: |
-          git remote set-url origin https://x-access-token:${{ secrets.PUSH_TOKEN }}@github.com/${{ github.repository }}
+          git remote set-url origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}
           git push
