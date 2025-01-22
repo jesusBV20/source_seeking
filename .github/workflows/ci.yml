@@ -23,18 +23,13 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
         with:
-          submodules: true  # Ensure submodules are checked out
+          persist-credentials: false
+          fetch-depth: 0 
 
-      - name: Fetch submodule updates
+      - name: Submodule update
         run: |
-          # Fetch the latest commits for submodules
-          git submodule update --remote --merge || git submodule update --remote --rebase
-
-      - name: Resolve potential merge conflicts in submodules
-        run: |
-          # Allow unrelated histories to be merged if necessary
-          git submodule foreach 'git fetch origin || true'  # Fetch submodule updates
-          git submodule foreach 'git merge origin/main --allow-unrelated-histories || true'  # Merge with allow-unrelated-histories
+          git submodule init
+          git submodule update --remote --merge
 
       - name: Commit submodule updates if changes exist
         run: |
