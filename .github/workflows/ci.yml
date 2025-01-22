@@ -3,18 +3,6 @@ name: Update Submodules
 on:
   workflow_dispatch:
 
-# jobs:
-#   update-submodules:
-#     runs-on: ubuntu-latest
-#     steps:
-#       - name: Checkout code
-#         uses: actions/checkout@v2
-#         with:
-#           submodules: true
-
-#       - name: Update submodules
-#         run: git submodule update --remote --merge
-
 jobs:
   update-submodules:
     runs-on: ubuntu-latest
@@ -32,8 +20,8 @@ jobs:
           git submodule update --remote --merge
 
       - name: Commit submodule updates if changes exist
+        # If changes were detected, commit the updated submodules
         run: |
-          # If changes were detected, commit the updated submodules
           if [[ $(git diff --exit-code) ]]; then
             git config --local user.email "github-actions[bot]@users.noreply.github.com"
             git config --local user.name "GitHub Actions Bot"
@@ -43,11 +31,6 @@ jobs:
             echo "No submodule updates detected, skipping commit."
           fi
 
-      # - name: Push changes
-      #   uses: ad-m/github-push-action@master
-      #   with:
-      #     github_token: ${{ secrets.GITHUB_TOKEN }}
-      #     branch: ${{ github.ref }}
       - name: Authenticate and push
         run: |
           git remote set-url origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}
