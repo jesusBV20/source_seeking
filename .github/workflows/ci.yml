@@ -25,7 +25,6 @@ jobs:
         with:
           persist-credentials: false
           fetch-depth: 0 
-          token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Submodule update
         run: |
@@ -43,6 +42,7 @@ jobs:
           else
             echo "No submodule updates detected, skipping commit."
           fi
+          
       - name: Push changes
         uses: ad-m/github-push-action@master
         with:
