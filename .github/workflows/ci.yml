@@ -1,6 +1,12 @@
 name: Update Submodules
 
 on:
+  # This action can be triggered by a workflow in an external repository
+  workflow_call:
+    secrets:
+      PUSH_TOKEN:
+        required: true
+        
   workflow_dispatch:
 
 jobs:
