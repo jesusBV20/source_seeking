@@ -3,14 +3,48 @@ name: Update Submodules
 on:
   workflow_dispatch:
 
+# jobs:
+#   update-submodules:
+#     runs-on: ubuntu-latest
+#     steps:
+#       - name: Checkout code
+#         uses: actions/checkout@v2
+#         with:
+#           submodules: true
+
+#       - name: Update submodules
+#         run: git submodule update --remote --merge
+
 jobs:
   update-submodules:
     runs-on: ubuntu-latest
+
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
         with:
-          submodules: true
+          submodules: true  # Ensure submodules are checked out
 
-      - name: Update submodules
-        run: git submodule update --remote --merge
+      - name: Fetch submodule updates
+        run: |
+          # Fetch the latest commits for submodules
+          git submodule update --remote --merge || git submodule update --remote --rebase
+
+      - name: Resolve potential merge conflicts in submodules
+        run: |
+          # Allow unrelated histories to be merged if necessary
+          git submodule foreach 'git fetch origin || true'  # Fetch submodule updates
+          git submodule foreach 'git merge origin/main --allow-unrelated-histories || true'  # Merge with allow-unrelated-histories
+
+      - name: Commit submodule updates if changes exist
+        run: |
+          # If changes were detected, commit the updated submodules
+          if [[ $(git diff --exit-code) ]]; then
+            git add .
+            git commit -m "Update submodules"
+            git push
+          else
+            echo "No submodule updates detected, skipping commit."
+          fi
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
